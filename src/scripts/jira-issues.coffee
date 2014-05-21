@@ -14,19 +14,19 @@
 #   HUBOT_JIRA_ISSUES_IGNORE_USERS (optional, format: "user1|user2", default is "jira|github")
 #
 # Commands:
-# 
+#
 # Author:
 #   stuartf
 
 module.exports = (robot) ->
   cache = []
 
-  # In case someone upgrades form the previous version, we'll default to the 
+  # In case someone upgrades form the previous version, we'll default to the
   # previous behavior.
   jiraUrl = process.env.HUBOT_JIRA_URL || "https://#{process.env.HUBOT_JIRA_DOMAIN}"
   jiraUsername = process.env.HUBOT_JIRA_USERNAME
   jiraPassword = process.env.HUBOT_JIRA_PASSWORD
-  
+
   if jiraUsername != undefined && jiraUsername.length > 0
     auth = "#{jiraUsername}:#{jiraPassword}"
 
@@ -66,7 +66,7 @@ module.exports = (robot) ->
 
                   message = "[" + key + "] " + json.fields.summary
                   message += '\nStatus: '+json.fields.status.name
-                  
+
                   if ('value' of json.fields.assignee or 'displayName' of json.fields.assignee)
                     if (json.fields.assignee.name == "assignee" and json.fields.assignee.value.displayName)
                       message += ', assigned to ' + json.fields.assignee.value.displayName
@@ -75,11 +75,7 @@ module.exports = (robot) ->
                   else
                     message += ', unassigned'
                   message += ", rep. by "+json.fields.reporter.displayName
-                  if json.fields.fixVersions and json.fields.fixVersions.length > 0
-                    message += ', fixVersion: '+json.fields.fixVersions[0].name
-                  else
-                    message += ', fixVersion: NONE'
-                  
+
                   if json.fields.priority and json.fields.priority.name
                     message += ', priority: ' + json.fields.priority.name
 

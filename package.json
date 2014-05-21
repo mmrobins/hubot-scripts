@@ -1,8 +1,8 @@
 {
-  "name": "hubot-scripts",
-  "version": "2.5.14",
+  "name": "mmrobins-hubot-scripts",
+  "version": "1.0.0",
 
-  "author": "hubot",
+  "author": "Matt Robinson",
 
   "keywords": [
     "hubot",
@@ -17,12 +17,12 @@
 
   "licenses": [{
     "type": "MIT",
-    "url": "https://github.com/github/hubot-scripts/raw/master/LICENSE"
+    "url": "https://github.com/github/mmrobins/raw/master/LICENSE"
   }],
 
   "repository" : {
     "type": "git",
-    "url": "https://github.com/github/hubot-scripts.git"
+    "url": "https://github.com/mmrobins/hubot-scripts.git"
   },
 
   "dependencies": {
